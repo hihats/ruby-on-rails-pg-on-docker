@@ -87,6 +87,7 @@ password: <%= ENV['PG_PASSWORD'] %>
 host: db
 ```
 を追加修正
+
 ** postgresのdockerイメージは起動時に初期DBや初期ユーザをよしなに作成してくれることを留意しておく **
 
 [postgresイメージに渡せる環境変数の参照](https://hub.docker.com/_/postgres)
