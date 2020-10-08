@@ -39,12 +39,14 @@ services:
       options:
         max-size: "100k"
   node:
-    build: frontend
-    working_dir: /var/src/app/frontend
+    build:
+      context: frontend
+    working_dir: /var/src/app
     volumes:
-      - ./frontend:/var/src/app/frontend:delegated
-      - /var/src/app/frontend/node_modules
+      - ./frontend:/var/src/app:delegated
+      - /var/src/app/node_modules
     ports:
       - 9090:8080
-    command: ./node_modules/.bin/webpack-dev-server --host 0.0.0.0 --inline --progress --public 0.0.0.0:9090 --config build/webpack.dev.conf.js
+#    command: ./node_modules/.bin/webpack-dev-server --host 0.0.0.0 --inline --progress --public 0.0.0.0:9090 --config build/webpack.dev.conf.js
+    command: yarn serve
     container_name: node
